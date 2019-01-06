@@ -83,36 +83,51 @@ function InvitePage() {
               approved by our moderators. This will typically take a few hours,
               but we'll get you in as soon as possible!
             </p>
-            <div className="field">
-              <label className="label">Name</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="text"
-                  ref={nameEl}
-                  name="name"
-                  placeholder="e.g Alex Smith"
-                />
+          </div>
+        </section>
+        <section className="section">
+          <div className="container">
+            <form>
+              <div className="field">
+                <label className="label is-large" htmlFor="name">
+                  Name
+                </label>
+                <div className="control">
+                  <input
+                    id="name"
+                    className="input is-large"
+                    type="text"
+                    ref={nameEl}
+                    name="name"
+                    placeholder="e.g Alex Smith"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div className="field">
-              <label className="label">Email</label>
-              <div className="control">
-                <input
-                  className="input"
-                  name="email"
-                  type="email"
-                  ref={emailEl}
-                  placeholder="e.g. alexsmith@gmail.com"
-                />
+              <div className="field">
+                <label className="label is-large" htmlFor="email">
+                  Email
+                </label>
+                <div className="control">
+                  <input
+                    id="email"
+                    className="input is-large"
+                    name="email"
+                    type="email"
+                    ref={emailEl}
+                    placeholder="e.g. alexsmith@gmail.com"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="control">
-              <button className="button is-primary" onClick={onFormSubmit}>
-                Request Invitation
-              </button>
-            </div>
+              <div className="control">
+                <button
+                  className="button is-primary is-large"
+                  onClick={onFormSubmit}
+                >
+                  Request Invitation
+                </button>
+              </div>
+            </form>
           </div>
         </section>
       </main>
