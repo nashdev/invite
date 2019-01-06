@@ -114,6 +114,7 @@ function InvitePage() {
                     ref={nameEl}
                     name="name"
                     placeholder="e.g Alex Smith"
+                    required
                   />
                 </div>
               </div>
@@ -130,6 +131,7 @@ function InvitePage() {
                     type="email"
                     ref={emailEl}
                     placeholder="e.g. alexsmith@gmail.com"
+                    required
                   />
                 </div>
               </div>
