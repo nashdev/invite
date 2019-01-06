@@ -1,4 +1,5 @@
 const express = require("express");
+const helmet = require("helmet");
 const next = require("next");
 const fetch = require("isomorphic-unfetch");
 const { WebClient } = require("@slack/client");
@@ -59,6 +60,8 @@ async function invite(email) {
 
 app.prepare().then(() => {
   const server = express();
+  server.use(helmet());
+
   const jsonParse = bodyParser.json();
 
   server.get("*", (req, res) => {

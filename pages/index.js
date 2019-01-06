@@ -18,7 +18,9 @@ function InvitePage() {
     status: null
   });
 
-  const onFormSubmit = async () => {
+  const onFormSubmit = async e => {
+    e.preventDefault();
+
     const email = emailEl.current.value;
     const name = nameEl.current.value;
 
