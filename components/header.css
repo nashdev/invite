@@ -1,0 +1,9 @@
+.brand {
+  font-weight: 200;
+}
+.brand a span {
+  font-weight: bold;
+  color: #3676d9;
+  border-bottom: 5px solid;
+  margin: 0 3px;
+}
