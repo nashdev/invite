@@ -8,6 +8,7 @@ import Hero from "../components/hero";
 function InvitePage() {
   const emailEl = useRef(null);
   const nameEl = useRef(null);
+  const cocEl = useRef(null);
   const [flash, setFlash] = useState({
     title: null,
     message: null,
@@ -19,6 +20,16 @@ function InvitePage() {
 
     const email = emailEl.current.value;
     const name = nameEl.current.value;
+    const coc = cocEl.current.checked;
+
+    if (
+      !coc &&
+      !confirm(
+        "You must abide by the code of conduct to continue. Do you agree?"
+      )
+    ) {
+      return;
+    }
 
     try {
       setFlash({
@@ -34,7 +45,8 @@ function InvitePage() {
         },
         body: JSON.stringify({
           name,
-          email
+          email,
+          coc
         })
       });
 
@@ -71,7 +83,11 @@ function InvitePage() {
       </Head>
 
       <Header />
-      <Hero title="Invite" flash={flash} />
+      <Hero
+        title="Invite"
+        subtitle="Join over 4,500 other Nashville Developers."
+        flash={flash}
+      />
 
       <main>
         <section className="section">
@@ -117,6 +133,20 @@ function InvitePage() {
                   />
                 </div>
               </div>
+
+              <div className="field">
+                <div className="control">
+                  <label className="checkbox">
+                    <input type="checkbox" name="coc" id="coc" ref={cocEl} /> I
+                    agree to abide by the{" "}
+                    <a href="/conduct" target="_blank">
+                      code of conduct
+                    </a>
+                    .
+                  </label>
+                </div>
+              </div>
+
               <div className="control">
                 <button
                   className="button is-primary is-large"
