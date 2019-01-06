@@ -18,6 +18,16 @@ const inviteToken = process.env.SLACK_INVITE_TOKEN;
 const slackClient = new WebClient(process.env.SLACK_BOT_TOKEN);
 const channel = process.env.SLACK_INVITE_CHANNEL;
 
+function getIp(req) {
+  const ipAddr = req.headers["x-forwarded-for"];
+
+  if (ipAddr) {
+    const list = ipAddr.split(",");
+    return list[list.length - 1];
+  }
+  return req.connection.remoteAddress;
+}
+
 async function invite(email) {
   // Manually request an invite over rest api as the Webclient doesn't
   // have the scope to make an invite request.
@@ -109,8 +119,9 @@ app.prepare().then(() => {
               callback_id: "invite_user",
               attachment_type: "default",
               title: "New automatic invite request",
-              text:
-                "A user has requested an invite to join the NashDev Slack team.",
+              text: `A user at ${getIp(
+                req
+              )} has requested an invite to join the NashDev Slack team.`,
               color: "#74c8ed",
               fields: [
                 {
