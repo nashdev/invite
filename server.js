@@ -19,6 +19,8 @@ const inviteToken = process.env.SLACK_INVITE_TOKEN;
 const slackClient = new WebClient(process.env.SLACK_BOT_TOKEN);
 const channel = process.env.SLACK_INVITE_CHANNEL;
 
+const requestCountByIp = {};
+
 function getIp(req) {
   const ipAddr = req.headers["x-forwarded-for"];
 
@@ -27,6 +29,12 @@ function getIp(req) {
     return list[list.length - 1];
   }
   return req.connection.remoteAddress;
+}
+
+function incrementRequestCount(ip) {
+  const count = requestCountByIp[ip] || 0;
+  requestCountByIp[ip] = count + 1;
+  return requestCountByIp[ip];
 }
 
 async function invite(email) {
@@ -105,7 +113,11 @@ app.prepare().then(() => {
     ],
     async (req, res) => {
       try {
+        const ip = getIp(req);
         const errors = validationResult(req);
+
+        const count = incrementRequestCount(ip);
+        console.log(`Request count for ip ${ip}: ${count}`);
 
         if (!errors.isEmpty()) {
           return res.status(422).json({ errors: errors.array() });
@@ -122,9 +134,7 @@ app.prepare().then(() => {
               callback_id: "invite_user",
               attachment_type: "default",
               title: "New automatic invite request",
-              text: `A user at ${getIp(
-                req
-              )} has requested an invite to join the NashDev Slack team.`,
+              text: `A user at ${ip} (${count} requests) has requested an invite to join the NashDev Slack team.`,
               color: "#74c8ed",
               fields: [
                 {

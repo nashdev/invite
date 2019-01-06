@@ -1,13 +1,9 @@
 import { useState, useRef } from "react";
 import Head from "next/head";
 import fetch from "isomorphic-unfetch";
-import cx from "classnames";
 
 import Header from "../components/header";
-import Section from "../components/section";
 import Hero from "../components/hero";
-
-import css from "./index.css";
 
 function InvitePage() {
   const emailEl = useRef(null);
