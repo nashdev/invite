@@ -62,8 +62,8 @@ class SlackAdapter {
     }
   }
 
-  async handleInvite(payload) {
-    const [action] = payload.actions;
+  async handleInvite({ user, actions }) {
+    const [action] = actions;
     const { value } = action;
     const { name, email } = JSON.parse(value);
 
@@ -71,15 +71,23 @@ class SlackAdapter {
       try {
         await this.invite(email);
 
-        return { text: `✅ Ok, we've sent ${name} <${email}> an invite.` };
+        return {
+          text: `✅ Ok, we've sent ${name} <${email}> an invite. (Approved by <@${
+            user.id
+          }>)`
+        };
       } catch (error) {
         return {
-          text: `There was a problem sending ${name} <${email}> an invite. ${error}`
+          text: `There was a problem sending ${name} <${email}> an invite. (Attempted by <@${
+            user.id
+          }>) ${error}  `
         };
       }
     } else {
       return {
-        text: `Ok, we've declined ${name} <${email}>'s invite for now.`
+        text: `Ok, we've declined ${name} <${email}>'s invite for now. (Declined by <@${
+          user.id
+        }>)`
       };
     }
   }

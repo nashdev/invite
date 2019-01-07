@@ -29,9 +29,9 @@ app.prepare().then(() => {
 
   server.post(
     "/api/invite",
-    inviteController.before,
-    inviteController.validate,
-    inviteController.handle
+    inviteController.beforeMiddleware,
+    inviteController.validateCreate,
+    inviteController.create
   );
 
   server.listen(port, err => {

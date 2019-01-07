@@ -2,10 +2,10 @@ const { check, validationResult } = require("express-validator/check");
 
 class InviteController {
   constructor({ slackAdapter, beforeMiddleware }) {
-    this.before = beforeMiddleware;
+    this.beforeMiddleware = beforeMiddleware;
     this.slack = slackAdapter;
 
-    this.validate = [
+    this.validateCreate = [
       check("email")
         .isEmail()
         .withMessage("Please enter a valid e-mail address."),
@@ -14,21 +14,20 @@ class InviteController {
         .withMessage("Your full name is required.")
     ];
 
-    this.handle = this.handle.bind(this);
+    this.create = this.create.bind(this);
   }
 
-  async handle(req, res) {
+  async create(req, res) {
     try {
       const errors = validationResult(req);
-      const ip = this.slack.getIp(req);
-      const count = this.slack.incrementRequestCount(ip);
-      const { email, name } = req.body;
-
-      console.log(`Request count for ip ${ip}: ${count}`);
 
       if (!errors.isEmpty()) {
         return res.status(422).json({ errors: errors.array() });
       }
+
+      const { email, name } = req.body;
+      const ip = this.slack.getIp(req);
+      const count = this.slack.incrementRequestCount(ip);
 
       this.slack.sendNotification({ email, name, ip, count });
 
