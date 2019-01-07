@@ -86,7 +86,7 @@ app.prepare().then(() => {
       try {
         await invite(email);
 
-        return { text: `Ok we've sent ${name} <${email}> an invite.` };
+        return { text: `✅ Ok, we've sent ${name} <${email}> an invite.` };
       } catch (error) {
         return {
           text: `There was a problem sending ${name} <${email}> an invite. ${error}`
