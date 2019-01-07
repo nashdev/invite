@@ -18,7 +18,6 @@ const slackInteractions = createMessageAdapter(
 const inviteToken = process.env.SLACK_INVITE_TOKEN;
 const slackClient = new WebClient(process.env.SLACK_BOT_TOKEN);
 const channel = process.env.SLACK_INVITE_CHANNEL;
-
 const requestCountByIp = {};
 
 function getIp(req) {
@@ -115,15 +114,14 @@ app.prepare().then(() => {
       try {
         const ip = getIp(req);
         const errors = validationResult(req);
-
         const count = incrementRequestCount(ip);
+        const { email, name } = req.body;
+
         console.log(`Request count for ip ${ip}: ${count}`);
 
         if (!errors.isEmpty()) {
           return res.status(422).json({ errors: errors.array() });
         }
-
-        const { email, name } = req.body;
 
         slackClient.chat.postMessage({
           channel: channel,
@@ -169,7 +167,7 @@ app.prepare().then(() => {
 
         res.json({
           status:
-            "You've successfully submitted your invite request. We'll approve your request as soon as possible.",
+            "You've successfully submitted your invite request. We'll approve your request as soon as possible. Be on the lookout for an email from feedback@slack.com.",
           error: false
         });
       } catch (error) {
