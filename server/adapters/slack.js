@@ -1,3 +1,4 @@
+const dns = require("dns").promises;
 const fetch = require("isomorphic-unfetch");
 const { WebClient } = require("@slack/client");
 const { createMessageAdapter } = require("@slack/interactive-messages");
@@ -23,6 +24,15 @@ class SlackAdapter {
       return list[list.length - 1];
     }
     return req.connection.remoteAddress;
+  }
+
+  async getHostname(ip) {
+    try {
+      const hostnames = await dns.reverse(ip);
+      return hostnames.join("; ");
+    } catch (error) {
+      return null;
+    }
   }
 
   incrementRequestCount(ip) {
@@ -92,7 +102,7 @@ class SlackAdapter {
     }
   }
 
-  sendNotification({ email, name, ip, count }) {
+  sendNotification({ email, name, ip, hostname, count }) {
     this.webClient.chat.postMessage({
       channel: this.config.channel,
       link_names: true,
@@ -102,7 +112,7 @@ class SlackAdapter {
           callback_id: "invite_user",
           attachment_type: "default",
           title: "New automatic invite request",
-          text: `A user at ${ip} (${count} requests) has requested an invite to join the NashDev Slack team.`,
+          text: `A user at ${ip} — ${hostname} (${count} requests) has requested an invite to join the NashDev Slack team.`,
           color: "#74c8ed",
           fields: [
             {
