@@ -110,7 +110,7 @@ class SlackAdapter {
     console.log("location", location);
     const loc = `${location.location.country_flag_emoji} ${location.city}, ${
       location.region_code
-    } ${location.continent_name})`;
+    } — ${location.continent_name})`;
     console.log("loc", loc);
 
     this.webClient.chat.postMessage({
