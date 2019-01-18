@@ -27,10 +27,10 @@ class InviteController {
 
       const { email, name } = req.body;
       const ip = this.slack.getIp(req);
-      const hostname = await this.slack.getHostname(ip);
+      const location = await this.slack.getLocation(ip);
       const count = this.slack.incrementRequestCount(ip);
 
-      this.slack.sendNotification({ email, name, ip, hostname, count });
+      this.slack.sendNotification({ email, name, ip, location, count });
 
       res.json({
         status:

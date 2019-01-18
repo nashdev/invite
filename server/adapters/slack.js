@@ -26,10 +26,14 @@ class SlackAdapter {
     return req.connection.remoteAddress;
   }
 
-  async getHostname(ip) {
+  async getLocation(ip) {
     try {
-      const hostnames = await dns.reverse(ip);
-      return hostnames.join("; ");
+      const req = await fetch(
+        `http://api.ipstack.com/${ip}?access_key=${
+          process.env.IPSTACK_API_KEY
+        }&format=1`
+      );
+      return await req.json();
     } catch (error) {
       return null;
     }
@@ -102,7 +106,13 @@ class SlackAdapter {
     }
   }
 
-  sendNotification({ email, name, ip, hostname, count }) {
+  sendNotification({ email, name, ip, location, count }) {
+    console.log("location", location);
+    const loc = `${location.location.country_flag_emoji} ${location.city}, ${
+      location.region_code
+    } ${location.continent_name})`;
+    console.log("loc", loc);
+
     this.webClient.chat.postMessage({
       channel: this.config.channel,
       link_names: true,
@@ -112,7 +122,7 @@ class SlackAdapter {
           callback_id: "invite_user",
           attachment_type: "default",
           title: "New automatic invite request",
-          text: `A user at ${ip} — ${hostname} (${count} requests) has requested an invite to join the NashDev Slack team.`,
+          text: `A user at ${ip} — ${loc} (${count} requests) has requested an invite to join the NashDev Slack team.`,
           color: "#74c8ed",
           fields: [
             {
