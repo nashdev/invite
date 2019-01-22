@@ -29,12 +29,16 @@ class SlackAdapter {
   async getLocation(ip) {
     try {
       const req = await fetch(
-        `http://api.ipstack.com/${ip}?access_key=${
-          process.env.IPSTACK_API_KEY
-        }&format=1`
+        `http://ipinfo.io/${ip}?token=${process.env.IPINFO_API_TOKEN}`,
+        {
+          headers: {
+            Accept: "application/json"
+          }
+        }
       );
       return await req.json();
     } catch (error) {
+      console.error("Locatio Error:", error);
       return null;
     }
   }
@@ -106,12 +110,9 @@ class SlackAdapter {
     }
   }
 
-  sendNotification({ email, name, ip, location, count }) {
-    console.log("location", location);
-    const loc = `${location.location.country_flag_emoji} ${location.city}, ${
-      location.region_code
-    } — ${location.continent_name})`;
-    console.log("loc", loc);
+  sendNotification({ email, name, location, count }) {
+    const ip = location.ip;
+    const loc = `${location.city}, ${location.region} — ${location.country}`;
 
     this.webClient.chat.postMessage({
       channel: this.config.channel,
