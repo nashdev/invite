@@ -2,6 +2,7 @@ const express = require("express");
 const helmet = require("helmet");
 const next = require("next");
 const bodyParser = require("body-parser");
+const compression = require("compression");
 
 const SlackAdapter = require("./server/adapters/slack");
 const InviteController = require("./server/controllers/invite");
@@ -21,6 +22,7 @@ app.prepare().then(() => {
     beforeMiddleware: [jsonParse]
   });
 
+  server.use(compression());
   server.use(helmet());
 
   server.get("*", handle);
