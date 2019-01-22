@@ -1,4 +1,6 @@
 import App, { Container } from "next/app";
+import Router from "next/router";
+import withGA from "next-ga";
 import React from "react";
 
 //TODO: REMOVE THIS
@@ -18,4 +20,4 @@ class MyApp extends App {
   }
 }
 
-export default MyApp;
+export default withGA("UA-103830543-2", Router)(MyApp);
