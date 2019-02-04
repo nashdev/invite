@@ -52,7 +52,11 @@ class Header extends React.Component {
                 <span>Invite</span>
               </a>
 
-              <a className="navbar-item" href="https:///jobs.nashdev.com">
+              <a
+                className="navbar-item"
+                href="https://jobs.nashdev.com"
+                rel="noopener noreferrer"
+              >
                 <span>Jobs</span>
               </a>
 
