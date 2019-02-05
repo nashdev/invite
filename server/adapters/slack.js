@@ -110,7 +110,7 @@ class SlackAdapter {
     }
   }
 
-  sendNotification({ email, name, location, count }) {
+  sendNotification({ email, name, reason, location, count }) {
     const ip = location.ip;
     const loc = `${location.city}, ${location.region} — ${location.country}`;
 
@@ -135,6 +135,11 @@ class SlackAdapter {
               title: "Email",
               value: email,
               short: true
+            },
+
+            {
+              title: "Reason",
+              value: reason ? reason : "N/A"
             }
           ],
           actions: [

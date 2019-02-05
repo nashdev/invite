@@ -9,10 +9,12 @@ function InvitePage() {
   const emailEl = useRef(null);
   const nameEl = useRef(null);
   const cocEl = useRef(null);
+  const reasonEl = useRef(null);
   const [flash, setFlash] = useState({
     title: null,
     message: null,
-    status: null
+    status: null,
+    reason: null
   });
 
   const onFormSubmit = async e => {
@@ -21,6 +23,7 @@ function InvitePage() {
     const email = emailEl.current.value;
     const name = nameEl.current.value;
     const coc = cocEl.current.checked;
+    const reason = reasonEl.current.value;
 
     if (
       !coc &&
@@ -46,13 +49,15 @@ function InvitePage() {
         body: JSON.stringify({
           name,
           email,
-          coc
+          coc,
+          reason
         })
       });
 
       const { status, errors } = await req.json();
       emailEl.current.value = "";
       nameEl.current.value = "";
+      reasonEl.current.value = "";
 
       if (errors) {
         return setFlash({
@@ -134,6 +139,26 @@ function InvitePage() {
                     required
                   />
                 </div>
+              </div>
+
+              <div className="field">
+                <label className="label is-large" htmlFor="reason">
+                  Why do you want to join the NashDev Slack Channel?
+                </label>
+                <div className="control">
+                  <textarea
+                    id="reason"
+                    className="textarea is-large"
+                    name="reason"
+                    type="reason"
+                    ref={reasonEl}
+                    required
+                  />
+                </div>
+                <p className="help">
+                  If you're not local to Nashville, please tell us in a few
+                  words why you want to join this community.{" "}
+                </p>
               </div>
 
               <div className="field">
