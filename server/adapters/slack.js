@@ -73,7 +73,7 @@ class SlackAdapter {
           "User has already been invited to Slack. Delete their invite and manually send again if problem persists."
         );
       } else if (error === "already_in_team") {
-        throw new Error(`User is already already a member of Nashdev!`);
+        throw new Error(`User is already a member of Nashdev!`);
       } else {
         throw new Error(error);
       }
