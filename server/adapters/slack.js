@@ -3,9 +3,35 @@ const fetch = require("isomorphic-unfetch");
 const { WebClient } = require("@slack/client");
 const { createMessageAdapter } = require("@slack/interactive-messages");
 
+class RequestCache {
+  constructor() {
+    this.requests = {};
+    this.lastId = 1;
+  }
+  getNextId() {
+    this.lastId += 1;
+    return this.lastId;
+  }
+  get(id) {
+    return this.requests[id];
+  }
+  add({ email, name, reason, location, count }) {
+    const id = this.getNextId();
+    this.requests[id] = {
+      email,
+      name,
+      reason,
+      location,
+      count
+    };
+    return id;
+  }
+}
+
 class SlackAdapter {
   constructor() {
     this.requestCountByIp = {};
+    this.requests = new RequestCache();
     this.config = {
       org: process.env.SLACK_ORG,
       inviteToken: process.env.SLACK_INVITE_TOKEN,
@@ -13,7 +39,11 @@ class SlackAdapter {
     };
     this.webClient = new WebClient(process.env.SLACK_BOT_TOKEN);
     this.adapter = createMessageAdapter(process.env.SLACK_SIGNING_SECRET);
-    this.adapter.action("invite_user", this.handleInvite.bind(this));
+
+    this.adapter.action(
+      { block_id: "invite_user" },
+      this.handleInvite.bind(this)
+    );
   }
 
   getIp(req) {
@@ -38,7 +68,7 @@ class SlackAdapter {
       );
       return await req.json();
     } catch (error) {
-      console.error("Locatio Error:", error);
+      console.error("Location Error:", error);
       return null;
     }
   }
@@ -80,85 +110,197 @@ class SlackAdapter {
     }
   }
 
-  async handleInvite({ user, actions }) {
+  async handleInvite(payload, respond) {
+    const { actions } = payload;
     const [action] = actions;
-    const { value } = action;
-    const { name, email } = JSON.parse(value);
 
-    if (action.name === "approve") {
-      try {
-        await this.invite(email);
+    if (action.action_id === "invite_approve") {
+      return respond(await this.handleApprove(payload));
+    }
 
-        return {
-          text: `✅ Ok, we've sent ${name} <${email}> an invite. (Approved by <@${
-            user.id
-          }>)`
-        };
-      } catch (error) {
-        return {
-          text: `There was a problem sending ${name} <${email}> an invite. (Attempted by <@${
-            user.id
-          }>) ${error}  `
-        };
-      }
-    } else {
+    if (action.action_id === "invite_deny") {
+      return respond(await this.handleDeny(payload));
+    }
+
+    return respond({
+      text: "You clickedd something you shouldn't have clicked."
+    });
+  }
+
+  async handleApprove(payload) {
+    const { user, actions } = payload;
+    const [action] = actions;
+    const { value: requestId } = action;
+    const { email } = this.requests.get(requestId);
+
+    try {
+      await this.invite(email);
+
+      const response = {
+        text: `✅ Ok, we've sent the invite.`,
+        status: "Approved",
+        user: user.username
+      };
       return {
-        text: `Ok, we've declined ${name} <${email}>'s invite for now. (Declined by <@${
-          user.id
-        }>)`
+        replace_original: true,
+        blocks: this.getNotificationBlocks(requestId, response)
+      };
+    } catch (error) {
+      const response = {
+        text: `⚠️ There was a problem sending the invite. \n *${error}*`,
+        status: "Error",
+        user: user.username
+      };
+      return {
+        replace_original: true,
+        blocks: this.getNotificationBlocks(requestId, response)
       };
     }
   }
 
-  sendNotification({ email, name, reason, location, count }) {
-    const ip = location.ip;
+  async handleDeny(payload) {
+    const { user, actions } = payload;
+    const [action] = actions;
+    const { value: requestId } = action;
+
+    const response = {
+      text: `⛔️ Ok, we've denied this invite for now.`,
+      status: "Denied",
+      user: user.username
+    };
+    return {
+      replace_original: true,
+      blocks: this.getNotificationBlocks(requestId, response)
+    };
+  }
+
+  getNotificationBlocks(requestId, response) {
+    const { email, name, reason, location, count } = this.requests.get(
+      requestId
+    );
     const loc = `${location.city}, ${location.region} — ${location.country}`;
+    let ip = location.ip;
+    let context = [];
+    let actions = [];
+
+    if (response) {
+      const status =
+        response.status === "Error" ? "Attempted" : response.status;
+      const user = response.user;
+
+      context = [
+        {
+          type: "context",
+          elements: [
+            {
+              type: "mrkdwn",
+              text: response.text
+            },
+            {
+              type: "plain_text",
+              text: `${status} by @${user}.`,
+              emoji: true
+            }
+          ]
+        }
+      ];
+
+      ip = "REDACTED";
+    }
+
+    if (!response) {
+      actions = [
+        {
+          type: "actions",
+          block_id: "invite_user",
+          elements: [
+            {
+              type: "button",
+              action_id: "invite_approve",
+              text: {
+                type: "plain_text",
+                text: "Approve"
+              },
+              value: `${requestId}`
+            },
+            {
+              type: "button",
+              action_id: "invite_deny",
+              text: {
+                type: "plain_text",
+                text: "Deny"
+              },
+              value: `${requestId}`
+            }
+          ]
+        }
+      ];
+    }
+
+    return [
+      {
+        type: "section",
+        text: {
+          type: "mrkdwn",
+          text: "A user has requested to join the NashDev slack team."
+        }
+      },
+      {
+        type: "divider"
+      },
+      {
+        type: "section",
+        fields: [
+          {
+            type: "mrkdwn",
+            text: `*Name:*\n ${name}`
+          },
+          {
+            type: "mrkdwn",
+            text: `*Email:*\n ${email}`
+          },
+          {
+            type: "mrkdwn",
+            text: `*Location:*\n ${loc}`
+          },
+          {
+            type: "mrkdwn",
+            text: `*IP:*\n ${ip} (Requests: ${count})`
+          }
+        ]
+      },
+      {
+        type: "divider"
+      },
+      {
+        type: "section",
+        text: {
+          type: "mrkdwn",
+          text: `*Reason:*\n${reason}`
+        }
+      },
+      {
+        type: "divider"
+      },
+      ...actions,
+      ...context
+    ];
+  }
+
+  sendNotification({ email, name, reason, location, count }) {
+    const requestId = this.requests.add({
+      email,
+      name,
+      reason,
+      location,
+      count
+    });
+    const blocks = this.getNotificationBlocks(requestId);
 
     this.webClient.chat.postMessage({
       channel: this.config.channel,
       link_names: true,
-      text: ``,
-      attachments: JSON.stringify([
-        {
-          callback_id: "invite_user",
-          attachment_type: "default",
-          title: "New automatic invite request",
-          text: `A user at ${ip} — ${loc} (${count} requests) has requested an invite to join the NashDev Slack team.`,
-          color: "#74c8ed",
-          fields: [
-            {
-              title: "Name",
-              value: name,
-              short: true
-            },
-            {
-              title: "Email",
-              value: email,
-              short: true
-            },
-
-            {
-              title: "Reason",
-              value: reason ? reason : "N/A"
-            }
-          ],
-          actions: [
-            {
-              name: "approve",
-              type: "button",
-              text: `Approve`,
-              value: JSON.stringify({ name, email }),
-              style: "primary"
-            },
-            {
-              name: "decline",
-              type: "button",
-              text: `Decline`,
-              value: JSON.stringify({ name, email })
-            }
-          ]
-        }
-      ])
+      blocks: blocks
     });
   }
 }

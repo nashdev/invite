@@ -22,10 +22,8 @@ app.prepare().then(() => {
     beforeMiddleware: [jsonParse]
   });
 
-  server.use(compression());
-  server.use(helmet());
-
-  server.get("*", handle);
+  // server.use(compression());
+  // server.use(helmet());
 
   server.use("/api/slack/actions", slack.adapter.expressMiddleware());
 
@@ -35,6 +33,8 @@ app.prepare().then(() => {
     inviteController.validateCreate,
     inviteController.create
   );
+
+  server.get("*", handle);
 
   server.listen(port, err => {
     if (err) throw err;
