@@ -90,7 +90,7 @@ function InvitePage() {
       <Header />
       <Hero
         title="Invite"
-        subtitle="Join over 5,200+ other Nashville Developers."
+        subtitle="Join over 5,900+ other Nashville Developers."
         flash={flash}
       />
 
