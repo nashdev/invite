@@ -47,42 +47,37 @@ function ConductPage() {
                 celebrate the creativity and collaboration of our independent
                 members and the diversity of skills, talents, experiences,
                 cultures, and opinions that they bring to your community.
-                <br />
-                <br />
+              </p>
+              <p>
                 NashDev Slack desires to be an inclusive environment and
                 believes in treating all individuals respectfully, regardless of
                 gender or gender identity (including transgender status), sexual
                 orientation, age, disability, nationality, race, ethnicity,
                 religion (or lack thereof), political affiliation, or career
                 path.
-                <br />
-                <br />
-                We value respectful behavior above individual opinions.
               </p>
+              <p>We value respectful behavior above individual opinions.</p>
               <p>Respectful behavior includes but is not limited to:</p>
               <ul>
-                <li>
-                  Be considerate, kind, constructive, and helpful. <br />
-                </li>
+                <li>Be considerate, kind, constructive, and helpful.</li>
                 <li>
                   Avoid demeaning, discriminatory, harassing, hateful, or
                   physically threatening behavior, speech, and imagery.
-                  <br />
                 </li>
                 <li>
                   If you’re not sure, ask someone instead of assuming. No,
                   really. Just ask the admins. We’d rather hear from you than
                   hear about something you said or did after the fact, and we
-                  are here to help. <br />
+                  are here to help.
                 </li>
                 <li>
                   Don’t be a bystander. Role model respectful behaviour, but
-                  also help to address disrespect when you see it. <br />
+                  also help to address disrespect when you see it.
                 </li>
                 <li>
                   Disrespectful behavior outside this community may be
                   considered a violation of this code of conduct at the
-                  discretion of the admins. <br />
+                  discretion of the admins.
                 </li>
               </ul>
             </section>
@@ -144,18 +139,15 @@ function ConductPage() {
                 <li>
                   Ask permission of the channel before posting the solicitation
                   or information
-                  <br />
                 </li>
-                <li>
-                  State clear intent for the purpose
-                  <br />
-                </li>
+                <li>State clear intent for the purpose</li>
                 <li>Listen to the response of your peers</li>
               </ul>
               <p>
                 We believe the above protocol is generally useful and should be
                 used when there are any doubts.
-                <br />
+              </p>
+              <p>
                 If you join this community simply to take value rather than
                 contribute, the community will quickly notice and react. If you
                 are wondering whether a specific action is commercial or not,
@@ -170,15 +162,14 @@ function ConductPage() {
               <p>
                 We believe peer-to-peer discussions, feedback, and corrections
                 can help build a stronger, safer, and more welcoming community.
-                <br />
               </p>
               <p>
                 If you see someone violating any part of this Code of Conduct,
                 we urge you to respectfully dissuade them from such behavior.
                 Expect that others in the community wish to help keep the
                 community respectful, and welcome your input in doing so.
-                <br />
-                <br />
+              </p>
+              <p>
                 If you experience disrespectful behavior toward yourself or
                 anyone else and feel in any way unable or unwilling to respond
                 or resolve it respectfully (for any reason), please immediately
@@ -209,7 +200,8 @@ function ConductPage() {
               <p>
                 If you feel a message should be deleted, please refer to the
                 Deleting Content section below.
-                <br />
+              </p>
+              <p>
                 If you are unable to resolve a situation peacefully, please
                 refer to our “Incidence Process” section below and choose a
                 course of action that suits the situation.
@@ -219,8 +211,8 @@ function ConductPage() {
                 this Code of Conduct, the admins may take any action they deem
                 appropriate within this Slack team, up to and including
                 expulsion and exclusion from NashDev Slack.
-                <br />
-                <br />
+              </p>
+              <p>
                 As admins, we will seek to resolve conflicts peacefully and in a
                 manner that is positive for the community. We can’t foresee
                 every situation, and thus if in the admin team’s judgment that
@@ -275,14 +267,10 @@ function ConductPage() {
                 the time before admin action:
               </p>
               <ul>
-                <li>
-                  How blatant the violation is
-                  <br />
-                </li>
+                <li>How blatant the violation is</li>
                 <li>
                   How likely it is to be seen by others (higher-volume channels
                   get less time)
-                  <br />
                 </li>
                 <li>
                   How likely it is to trigger negative reactions in others
@@ -301,9 +289,9 @@ function ConductPage() {
               <h1>
                 <strong>3.0 Incident Process</strong>
               </h1>
+              <p>Our brief governing philosophy:</p>
+
               <p>
-                Our brief governing philosophy:
-                <br />
                 Please strive to resolve a non-heinous situation by yourself; if
                 it’s a heinous situation, please contact an admin immediately.
               </p>
@@ -318,8 +306,8 @@ function ConductPage() {
                 incidents on the NashDev Slack, but ideally the community
                 (that’s you) has both the tools and the desire to resolve many
                 situations without admin support.
-                <br />
-                <br />
+              </p>
+              <p>
                 The Code of Conduct exists to give members a model idea of what
                 is and isn’t acceptable in NashDev including behavior, marketing
                 activity, and etiquette. If you experience strange behavior in a
@@ -331,27 +319,20 @@ function ConductPage() {
                 explain:
               </p>
               <ul>
+                <li>This is the activity I saw which I have an issue with,</li>
+                <li>It’s not allowed by the CoC, and,</li>
                 <li>
-                  This is the activity I saw which I have an issue with,
-                  <br />
-                </li>
-                <li>
-                  It’s not allowed by the CoC, and,
-                  <br />
-                </li>
-                <li>
-                  Let’s figure out how to resolve it.
-                  <br />
-                  We ask in non-heinous cases to start with member-driven
-                  resolution. If you are not comfortable with this approach, go
-                  ahead and jump to “It’s Admin O’Clock”.
+                  Let’s figure out how to resolve it. We ask in non-heinous
+                  cases to start with member-driven resolution. If you are not
+                  comfortable with this approach, go ahead and jump to “It’s
+                  Admin O’Clock”.
                 </li>
               </ul>
               <p>
                 Ideally, the above discussion can help resolve the situation. It
                 often does. If it doesn’t, if you are not comfortable contacting
                 the member(s), or if this is an obvious heinous situation, jump
-                to “ It’s Admin O’Clock”.
+                to "It’s Admin O’Clock".
               </p>
             </section>
             <section className={css.subSection}>
@@ -364,14 +345,10 @@ function ConductPage() {
                 may also contact an admin directly, they are listed at the
                 bottom of this document. Please choose the path most comfortable
                 for you.
-                <br />
-                When you contact an admin(s), provide the following:
               </p>
+              <p>When you contact an admin(s), provide the following:</p>
               <ul>
-                <li>
-                  The activity you saw that you have an issue with,
-                  <br />
-                </li>
+                <li>The activity you saw that you have an issue with,</li>
                 <li>If applicable, the CoC violation.</li>
               </ul>
 
@@ -385,14 +362,12 @@ function ConductPage() {
                     who is available, please type <code>!help</code> in{" "}
                     <code>#support</code> and directly contact the admin that
                     responds.
-                    <br />
                   </li>
                   <li>
                     Admins are committed to a first response within 24 hours.
                     Usually faster. If you directly contact a single admin, it
                     could be longer depending on their availability and work
                     schedules.
-                    <br />
                   </li>
                   <li>
                     We will strive to keep your concerns private where possible.
@@ -400,7 +375,6 @@ function ConductPage() {
                     If people demand to know who has complained, we will not
                     divulge this information as we want people to feel
                     comfortable bringing concerns to the admin team.
-                    <br />
                   </li>
                   <li>
                     Once you’ve contacted an admin, they’ll help you triage the
@@ -420,7 +394,6 @@ function ConductPage() {
                 <ol>
                   <li>
                     Raising a concern to the admin to give them context, or,
-                    <br />
                   </li>
                   <li>
                     Filing a formal complaint that will result in administrative
@@ -435,16 +408,9 @@ function ConductPage() {
                   <li>
                     What’s the nature of the incident or Code of Conduct
                     violation?
-                    <br />
                   </li>
-                  <li>
-                    Who is involved in this incident?
-                    <br />
-                  </li>
-                  <li>
-                    What material supports this situation?
-                    <br />
-                  </li>
+                  <li>Who is involved in this incident?</li>
+                  <li>What material supports this situation?</li>
                   <li>
                     Any privacy concerns? (Reporter consent is required before
                     sharing any information regarding the incident)
@@ -457,16 +423,13 @@ function ConductPage() {
                     formal complaint with the reporter. In the case of a raised
                     concern, the understanding is there may be no action other
                     than administrative awareness.
-                    <br />
                   </li>
                   <li>
                     Ask clarifying questions of the reporter because every
                     incident is different.
-                    <br />
                   </li>
                   <li>
                     Work with publicly available content to confirm the report.
-                    <br />
                   </li>
                   <li>
                     Talk with their fellow administrators to gather perspective.
@@ -475,7 +438,8 @@ function ConductPage() {
                 <p>
                   The admin may deem it necessary to talk to the accused
                   member(s) to gather additional perspective.
-                  <br />
+                </p>
+                <p>
                   With this information in hand, the admin will determine a
                   consequence. Consequences include but are not limited to:
                 </p>
@@ -488,21 +452,18 @@ function ConductPage() {
                         non-suspending CoC violations can result in one or more
                         strikes. Admins will use their judgement and historical
                         precedent in determining what constitutes a strike.
-                        <br />
                       </li>
                       <li>
                         When a member receives three strikes, they will be
                         suspended from NashDev for a period of time or
                         permanently depending on the violation. Multiple strikes
                         can be assessed depending on the violation.
-                        <br />
                       </li>
                       <li>
                         We do not have a definition of what does and does not
                         constitute a strike. As of March 11, 2020 we are keeping
                         a record of all administrative activity to help
                         calibrate strikes.
-                        <br />
                       </li>
                     </ul>
                   </li>
@@ -513,7 +474,6 @@ function ConductPage() {
                         A member may not contact (in any fashion, messages or
                         emoji) either publicly or privately one more other
                         members of the Slack for a predetermined period of time.
-                        <br />
                       </li>
                     </ul>
                   </li>
@@ -523,7 +483,6 @@ function ConductPage() {
                       <li>
                         A member is suspended from NashDev Slack for a
                         predetermined period of time.
-                        <br />
                       </li>
                     </ul>
                   </li>
@@ -541,18 +500,9 @@ function ConductPage() {
                   following to the accused member:
                 </p>
                 <ul>
-                  <li>
-                    This is what occurred.
-                    <br />
-                  </li>
-                  <li>
-                    This incident is confidential.
-                    <br />
-                  </li>
-                  <li>
-                    This is how I confirmed what occurred.
-                    <br />
-                  </li>
+                  <li>This is what occurred.</li>
+                  <li>This incident is confidential.</li>
+                  <li>This is how I confirmed what occurred.</li>
                   <li>
                     This is what I decided in terms of consequence. In the case
                     of a non-ban action, explain the terms of Do Not Contact,
