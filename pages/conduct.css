@@ -1,0 +1,32 @@
+.short {
+  padding: 1rem 1rem 0rem 2.5rem;
+}
+
+.compliance{
+  padding: 1.5rem 0rem 0rem 5rem;
+}
+
+.mainSection {
+  padding: .5rem 1rem .5rem 2rem;
+}
+
+.subSection,
+.secondarySubSection {
+  margin: 1rem;
+}
+
+.COC {
+  padding-left: 2rem;
+}
+
+ul {
+  list-content-type: disc;
+}
+
+p, ul, ol {
+  padding-left: 1rem;
+}
+
+.attribution {
+  color: grey;
+}
