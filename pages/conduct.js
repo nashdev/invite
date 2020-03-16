@@ -229,7 +229,7 @@ function ConductPage() {
           </section>
 
           <section className={css.mainSection}>
-            <p className={css.attribution}>After reviewing several COC options, this version was adapted from the Rand Leadership Slack COC.</p>
+            <p className={css.attribution}>After reviewing several COC options, this version was adapted from the <a href="https://github.com/randsleadershipslack/documents-and-resources/blob/master/code-of-conduct.md">Rand Leadership Slack COC.</a> </p>
           </section>
 
         </div>
