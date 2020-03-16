@@ -117,25 +117,12 @@ function ConductPage() {
                 necessarily limited to:
               </p>
               <ul>
-                <li>
-                  #jobs (job postings)
-                  <br />
-                </li>
-                <li>
-                  #freelance (freelance / contract postings)
-                  <br />
-                </li>
-                <li>
-                  #classifieds (person to person sales)
-                  <br />
-                </li>
-                <li>
-                  #keyboards (keyboard specific sales)
-                  <br />
-                </li>
+                <li>#jobs (job postings)</li>
+                <li>#freelance (freelance / contract postings)</li>
+                <li>#classifieds (person to person sales)</li>
+                <li>#keyboards (keyboard specific sales)</li>
                 <li>
                   #boardgames (person to person board game specific sales)
-                  <br />
                 </li>
                 <li>
                   #cars (person to person car and autoparts specific sales)
