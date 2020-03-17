@@ -472,8 +472,8 @@ function ConductPage() {
                     <ul>
                       <li>
                         A member may not contact (in any fashion, messages or
-                        emoji) either publicly or privately one more other
-                        members of the Slack for a predetermined period of time.
+                        emoji) either publicly or privately designated members
+                        of the Slack for a predetermined period of time.
                       </li>
                     </ul>
                   </li>
