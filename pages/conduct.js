@@ -32,14 +32,14 @@ function ConductPage() {
               may be asked to leave the NashDev Slack.
             </p>
           </section>
-          <h1 className={css.COC}>
+          <a name="code-of-conduct"><h1 className={css.COC}>
             <strong>1.0 The Code of Conduct</strong>
-          </h1>
+          </h1></a>
           <section className={css.mainSection}>
             <section className={css.subSection}>
-              <h2>
+              <a name="respect"><h2>
                 <strong>1.1 Respect</strong>
-              </h2>
+              </h2></a>
               <p>
                 NashDev is an internet-based community space for professionals
                 in the middle Tennessee area who are actively learning,
@@ -82,9 +82,9 @@ function ConductPage() {
               </ul>
             </section>
             <section className={css.subSection}>
-              <h2>
+              <a name="privacy"><h2>
                 <strong>1.2 Privacy</strong>
-              </h2>
+              </h2></a>
               <p>
                 This community is not a public space. However, no one has signed
                 an non-disclosure agreement (“NDA”) to participate, and you
@@ -156,9 +156,9 @@ function ConductPage() {
             </section>
 
             <section className={css.subSection}>
-              <h2>
+              <a name="resolve-peacefully"><h2>
                 <strong>1.4 Resolve Peacefully</strong>
-              </h2>
+              </h2></a>
               <p>
                 We believe peer-to-peer discussions, feedback, and corrections
                 can help build a stronger, safer, and more welcoming community.
@@ -181,9 +181,9 @@ function ConductPage() {
             </section>
 
             <section className={css.subSection}>
-              <h2>
+              <a name="apologize-for-mistakes"><h2>
                 <strong>1.5 Apologize for Mistakes</strong>
-              </h2>
+              </h2></a>
               <p>
                 Should you catch yourself behaving disrespectfully, or be
                 confronted as such, listen intently, own up to your words and
@@ -194,9 +194,9 @@ function ConductPage() {
             </section>
 
             <section className={css.subSection}>
-              <h2>
+              <a name="consequences"><h2>
                 <strong>1.6 Consequences</strong>
-              </h2>
+              </h2></a>
               <p>
                 If you feel a message should be deleted, please refer to the
                 Deleting Content section below.
@@ -224,9 +224,9 @@ function ConductPage() {
 
           <section className={css.mainSection}>
             <section className={css.subSection}>
-              <h1>
+              <a name="deleting-content"><h1>
                 <strong>2.0 Deleting Content</strong>
-              </h1>
+              </h1></a>
               <p>
                 Admins may delete messages that violate the Code of Conduct
                 <br />
@@ -236,9 +236,9 @@ function ConductPage() {
             </section>
 
             <section className={css.subSection}>
-              <h2>
+              <a name="what-when-how"><h2>
                 <strong>2.1 What, When, and How</strong>
-              </h2>
+              </h2></a>
               <p>
                 Admins may come across or be notified of content on NashDev that
                 violates the Code of Conduct. In some situations, this may lead
@@ -286,9 +286,9 @@ function ConductPage() {
 
           <section className={css.mainSection}>
             <section className={css.subSection}>
-              <h1>
+              <a name="incident-process"><h1>
                 <strong>3.0 Incident Process</strong>
-              </h1>
+              </h1></a>
               <p>Our brief governing philosophy:</p>
 
               <p>
@@ -298,9 +298,9 @@ function ConductPage() {
             </section>
 
             <section className={css.subSection}>
-              <h2>
+              <a name="something-is-off"><h2>
                 <strong>3.1 Something is Off</strong>
-              </h2>
+              </h2></a>
               <p>
                 A significant part of the admin job is the management of
                 incidents on the NashDev Slack, but ideally the community
@@ -336,9 +336,9 @@ function ConductPage() {
               </p>
             </section>
             <section className={css.subSection}>
-              <h2>
+              <a name="its-admin-o-clock"><h2>
                 <strong>3.2 It’s Admin O’Clock</strong>
-              </h2>
+              </h2></a>
               <p>
                 Administrators can be contacted directly, in the{" "}
                 <code>#support</code> channel by typing <code>!help</code>. You
@@ -353,9 +353,9 @@ function ConductPage() {
               </ul>
 
               <section className={css.secondarySubSection}>
-                <h3>
+                <a name="things-to-know"><h3>
                   <strong>3.2.1 Things to know:</strong>
-                </h3>
+                </h3></a>
                 <ul>
                   <li>
                     If you need to contact an admin directly and are not sure
@@ -384,9 +384,9 @@ function ConductPage() {
               </section>
 
               <section className={css.secondarySubSection}>
-                <h3>
+                <a name="formal-incident-process"><h3>
                   <strong>3.2.2 Formal Incident Process</strong>
-                </h3>
+                </h3></a>
                 <p>
                   In the case of a formal incident being reported, there are two
                   possible resolution paths:
@@ -536,16 +536,16 @@ function ConductPage() {
           </section>
 
           <section className={css.mainSection}>
-            <h2>
+            <a name="appeals-process"><h2>
               <strong>4.0 Appeals Process</strong>
-            </h2>
+            </h2></a>
             <p>Under development.</p>
           </section>
 
           <section className={css.mainSection}>
-            <h2>
+            <a name="updates"><h2>
               <strong>5.0 Updates</strong>
-            </h2>
+            </h2></a>
             <p>
               When we make updates to the code of conduct or incident process we
               will make an announcement in the <code>#announcements</code>{" "}
@@ -555,9 +555,9 @@ function ConductPage() {
           </section>
 
           <section className={css.mainSection}>
-            <h2>
+            <a name="thanks"><h2>
               <strong>6.0 Thanks</strong>
-            </h2>
+            </h2></a>
             <p>
               Thank you to everyone in our community for helping to make our
               home the respectful and inclusive community that it is.
@@ -565,9 +565,9 @@ function ConductPage() {
           </section>
 
           <section className={css.mainSection}>
-            <h2>
+            <a name="administrators"><h2>
               <strong>7.0 Administrators</strong>
-            </h2>
+            </h2></a>
             <p>The admin team:</p>
             <ul>
               <li>
