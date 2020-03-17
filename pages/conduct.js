@@ -3,6 +3,15 @@ import Head from "next/head";
 import Header from "../components/header";
 import Hero from "../components/hero";
 
+import css from "./conduct.css";
+function Anchor({ name = "", children }) {
+  return (
+    <a name={name} href={`#${name}`} className={css.anchor}>
+      {children}
+    </a>
+  );
+}
+
 function ConductPage() {
   return (
     <React.Fragment>
@@ -20,7 +29,7 @@ function ConductPage() {
         <section className="section">
           <div className="container">
             <h2 className="title is-size-4">
-              <a name="tldr" className="anchor"></a>The Short Version
+              <Anchor name="tldr">The Short Version</Anchor>
             </h2>
 
             <p>
@@ -37,13 +46,13 @@ function ConductPage() {
         <section className="section">
           <div className="container">
             <h1 className="title is-size-3">
-              <a name="1.0" className="anchor"></a>1.0 The Code of Conduct
+              <Anchor name="1.0">1.0 The Code of Conduct</Anchor>
             </h1>
 
             <section className="section">
               <div className="container">
                 <h2 className="title is-size-4">
-                  <a name="1.1" className="anchor"></a>1.1 Respect
+                  <Anchor name="1.1">1.1 Respect</Anchor>
                 </h2>
                 <div className="content">
                   <p>
@@ -93,7 +102,7 @@ function ConductPage() {
             <section className="section">
               <div className="container">
                 <h2 className="title is-size-4">
-                  <a name="1.2" className="anchor"></a>1.2 Privacy
+                  <Anchor name="1.2">1.2 Privacy</Anchor>
                 </h2>
                 <div className="content">
                   <p>
@@ -114,7 +123,7 @@ function ConductPage() {
             <section className="section">
               <div className="container">
                 <h2 className="title is-size-4">
-                  <a name="1.3" className="anchor"></a>1.3 Not For Profit
+                  <Anchor name="1.3">1.3 Not For Profit</Anchor>
                 </h2>
                 <div className="content">
                   <p>
@@ -179,7 +188,7 @@ function ConductPage() {
             <section className="section">
               <div className="container">
                 <h2 className="title is-size-4">
-                  <a name="1.4" className="anchor"></a>1.4 Resolve Peacefully
+                  <Anchor name="1.4">1.4 Resolve Peacefully</Anchor>
                 </h2>
                 <div className="content">
                   <p>
@@ -211,8 +220,7 @@ function ConductPage() {
             <section className="section">
               <div className="container">
                 <h2 className="title is-size-4">
-                  <a name="1.5" className="anchor"></a>1.5 Apologize for
-                  Mistakes
+                  <Anchor name="1.5">1.5 Apologize for Mistakes</Anchor>
                 </h2>
                 <div className="content">
                   <p>
@@ -230,7 +238,7 @@ function ConductPage() {
             <section className="section">
               <div className="container">
                 <h2 className="title is-size-4">
-                  <a name="1.6" className="anchor"></a>1.6 Consequences
+                  <Anchor name="1.6">1.6 Consequences</Anchor>
                 </h2>
                 <div className="content">
                   <p>
@@ -264,7 +272,7 @@ function ConductPage() {
         <section className="section">
           <div className="container">
             <h2 className="title is-size-3">
-              <a name="2.0" className="anchor"></a>2.0 Deleting Content
+              <Anchor name="2.0">2.0 Deleting Content</Anchor>
             </h2>
             <div className="content">
               <p>
@@ -278,7 +286,7 @@ function ConductPage() {
             <section className="section">
               <div className="container">
                 <h2 className="title is-size-4">
-                  <a name="2." className="anchor"></a>2.1 What, When, and How
+                  <Anchor name="2.1">2.1 What, When, and How</Anchor>
                 </h2>
                 <div className="content">
                   <p>
@@ -333,7 +341,7 @@ function ConductPage() {
         <section className="section">
           <div className="container">
             <h1 className="title is-size-3">
-              <a name="3.0" className="anchor"></a>3.0 Incident Process
+              <Anchor name="3.0">3.0 Incident Process</Anchor>
             </h1>
             <div className="content">
               <p>Our brief governing philosophy:</p>
@@ -347,7 +355,7 @@ function ConductPage() {
             <section className="section">
               <div className="container">
                 <h2 className="title is-size-4">
-                  <a name="3.1" className="anchor"></a>3.1 Something is Off
+                  <Anchor name="3.1">3.1 Something is Off</Anchor>
                 </h2>
                 <div className="content">
                   <p>
@@ -391,7 +399,7 @@ function ConductPage() {
             <section className="section">
               <div className="container">
                 <h3 className="title is-size-3">
-                  <a name="3.2" className="anchor"></a>3.2 It’s Admin O’Clock
+                  <Anchor name="3.2">3.2 It’s Admin O’Clock</Anchor>
                 </h3>
                 <div className="content">
                   <p>
@@ -410,8 +418,7 @@ function ConductPage() {
                 <section className="section">
                   <div className="container">
                     <h3 className="title is-size-3">
-                      <a name="3.2.1" className="anchor"></a>3.2.1 Things to
-                      know:
+                      <Anchor name="3.2.1">3.2.1 Things to know:</Anchor>
                     </h3>
                     <div className="content">
                       <ul>
@@ -447,8 +454,9 @@ function ConductPage() {
                 <section className="section">
                   <div className="container">
                     <h3 className="title is-size-3">
-                      <a name="3.2.2" className="anchor"></a>
-                      3.2.2 Formal Incident Process
+                      <Anchor name="3.2.2">
+                        3.2.2 Formal Incident Process
+                      </Anchor>
                     </h3>
                     <div className="content">
                       <p>
@@ -617,7 +625,7 @@ function ConductPage() {
         <section className="section">
           <div className="container">
             <h2 className="title is-size-3">
-              <a name="4.0" className="anchor"></a>4.0 Appeals Process
+              <Anchor name="4.0">4.0 Appeals Process</Anchor>
             </h2>
             <div className="content">
               <p>Under development.</p>
@@ -628,7 +636,7 @@ function ConductPage() {
         <section className="section">
           <div className="container">
             <h2 className="title is-size-3">
-              <a name="5.0" className="anchor"></a>5.0 Updates
+              <Anchor name="5.0">5.0 Updates</Anchor>
             </h2>
             <div className="content">
               <p>
@@ -644,7 +652,7 @@ function ConductPage() {
         <section className="section">
           <div className="container">
             <h2 className="title is-size-3">
-              <a name="6.0" className="anchor"></a>6.0 Thanks
+              <Anchor name="6.0">6.0 Thanks</Anchor>
             </h2>
             <div className="content">
               <p>
@@ -658,7 +666,7 @@ function ConductPage() {
         <section className="section">
           <div className="container">
             <h2 className="title is-size-3">
-              <a name="7.0" className="anchor"></a>7.0 Administrators
+              <Anchor name="7.0">7.0 Administrators</Anchor>
             </h2>
             <div className="content">
               <p>The admin team:</p>
@@ -712,7 +720,7 @@ function ConductPage() {
           <div className="container">
             <div className="content">
               <h2 className="title is-size-3">
-                <a name="attribution" className="anchor"></a>Attribution
+                <Anchor name="attribution">Attribution</Anchor>
               </h2>
               <p>
                 After reviewing several COC options, this version was adapted

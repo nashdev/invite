@@ -1,0 +1,7 @@
+.anchor {
+  color: inherit;
+}
+
+.anchor:hover {
+  text-decoration: underline;
+}
