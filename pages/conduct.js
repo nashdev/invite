@@ -91,7 +91,7 @@ function ConductPage() {
                       also help to address disrespect when you see it.
                     </li>
                     <li>
-                      Disrespectful behavior outside this community may be
+                      Threatening behavior outside this community may be
                       considered a violation of this code of conduct at the
                       discretion of the admins.
                     </li>
