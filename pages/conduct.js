@@ -344,7 +344,9 @@ function ConductPage() {
               <Anchor name="3.0">3.0 Incident Process</Anchor>
             </h1>
             <div className="content">
-              <p>Our brief governing philosophy:</p>
+              <h2 className="title is-size-6">
+                Our brief governing philosophy:
+              </h2>
 
               <p>
                 Please strive to resolve a non-heinous situation by yourself; if
