@@ -19,7 +19,7 @@ function ConductPage() {
       <main>
         <section className="section">
           <div className="container">
-            <h2 className="title is-size-2">
+            <h2 className="title is-size-4">
               <a name="tldr" className="anchor"></a>The Short Version
             </h2>
 
@@ -36,13 +36,13 @@ function ConductPage() {
 
         <section className="section">
           <div className="container">
-            <h1 className="title is-size-1">
+            <h1 className="title is-size-3">
               <a name="1.0" className="anchor"></a>1.0 The Code of Conduct
             </h1>
 
             <section className="section">
               <div className="container">
-                <h2 className="title is-size-2">
+                <h2 className="title is-size-4">
                   <a name="1.1" className="anchor"></a>1.1 Respect
                 </h2>
                 <div className="content">
@@ -92,7 +92,7 @@ function ConductPage() {
             </section>
             <section className="section">
               <div className="container">
-                <h2 className="title is-size-2">
+                <h2 className="title is-size-4">
                   <a name="1.2" className="anchor"></a>1.2 Privacy
                 </h2>
                 <div className="content">
@@ -113,7 +113,7 @@ function ConductPage() {
             </section>
             <section className="section">
               <div className="container">
-                <h2 className="title is-size-2">
+                <h2 className="title is-size-4">
                   <a name="1.3" className="anchor"></a>1.3 Not For Profit
                 </h2>
                 <div className="content">
@@ -178,7 +178,7 @@ function ConductPage() {
 
             <section className="section">
               <div className="container">
-                <h2 className="title is-size-2">
+                <h2 className="title is-size-4">
                   <a name="1.4" className="anchor"></a>1.4 Resolve Peacefully
                 </h2>
                 <div className="content">
@@ -210,7 +210,7 @@ function ConductPage() {
 
             <section className="section">
               <div className="container">
-                <h2 className="title is-size-2">
+                <h2 className="title is-size-4">
                   <a name="1.5" className="anchor"></a>1.5 Apologize for
                   Mistakes
                 </h2>
@@ -229,7 +229,7 @@ function ConductPage() {
 
             <section className="section">
               <div className="container">
-                <h2 className="title is-size-2">
+                <h2 className="title is-size-4">
                   <a name="1.6" className="anchor"></a>1.6 Consequences
                 </h2>
                 <div className="content">
@@ -263,7 +263,7 @@ function ConductPage() {
 
         <section className="section">
           <div className="container">
-            <h2 className="title is-size-1">
+            <h2 className="title is-size-3">
               <a name="2.0" className="anchor"></a>2.0 Deleting Content
             </h2>
             <div className="content">
@@ -277,7 +277,7 @@ function ConductPage() {
 
             <section className="section">
               <div className="container">
-                <h2 className="title is-size-2">
+                <h2 className="title is-size-4">
                   <a name="2." className="anchor"></a>2.1 What, When, and How
                 </h2>
                 <div className="content">
@@ -332,7 +332,7 @@ function ConductPage() {
 
         <section className="section">
           <div className="container">
-            <h1 className="title is-size-1">
+            <h1 className="title is-size-3">
               <a name="3.0" className="anchor"></a>3.0 Incident Process
             </h1>
             <div className="content">
@@ -346,7 +346,7 @@ function ConductPage() {
 
             <section className="section">
               <div className="container">
-                <h2 className="title is-size-2">
+                <h2 className="title is-size-4">
                   <a name="3.1" className="anchor"></a>3.1 Something is Off
                 </h2>
                 <div className="content">
@@ -616,7 +616,7 @@ function ConductPage() {
 
         <section className="section">
           <div className="container">
-            <h2 className="title is-size-1">
+            <h2 className="title is-size-3">
               <a name="4.0" className="anchor"></a>4.0 Appeals Process
             </h2>
             <div className="content">
@@ -627,7 +627,7 @@ function ConductPage() {
 
         <section className="section">
           <div className="container">
-            <h2 className="title is-size-1">
+            <h2 className="title is-size-3">
               <a name="5.0" className="anchor"></a>5.0 Updates
             </h2>
             <div className="content">
@@ -643,7 +643,7 @@ function ConductPage() {
 
         <section className="section">
           <div className="container">
-            <h2 className="title is-size-1">
+            <h2 className="title is-size-3">
               <a name="6.0" className="anchor"></a>6.0 Thanks
             </h2>
             <div className="content">
@@ -657,7 +657,7 @@ function ConductPage() {
 
         <section className="section">
           <div className="container">
-            <h2 className="title is-size-1">
+            <h2 className="title is-size-3">
               <a name="7.0" className="anchor"></a>7.0 Administrators
             </h2>
             <div className="content">
@@ -711,7 +711,7 @@ function ConductPage() {
         <section className="section">
           <div className="container">
             <div className="content">
-              <h2 className="title is-size-1">
+              <h2 className="title is-size-3">
                 <a name="attribution" className="anchor"></a>Attribution
               </h2>
               <p>
