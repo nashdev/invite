@@ -3,6 +3,7 @@ const helmet = require("helmet");
 const next = require("next");
 const bodyParser = require("body-parser");
 const compression = require("compression");
+var sslRedirect = require("heroku-ssl-redirect");
 
 const SlackAdapter = require("./server/adapters/slack");
 const InviteController = require("./server/controllers/invite");
@@ -15,6 +16,9 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   const server = express();
+
+  // enable ssl redirect
+  server.use(sslRedirect());
 
   const slack = new SlackAdapter();
   const inviteController = new InviteController({
